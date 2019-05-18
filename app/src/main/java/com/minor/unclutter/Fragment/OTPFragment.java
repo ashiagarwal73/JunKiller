@@ -29,7 +29,7 @@ public class OTPFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_otp, container, false);
-        recyclerView=view.findViewById(R.id.personal_recycler_view);
+        recyclerView=view.findViewById(R.id.otp_recycler_view);
         sms=callback.getMessages(Types.OTPFragment);
         RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(sms);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));

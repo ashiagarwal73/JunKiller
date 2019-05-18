@@ -31,7 +31,7 @@ public class PromotionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_promotions, container, false);
-        recyclerView=view.findViewById(R.id.personal_recycler_view);
+        recyclerView=view.findViewById(R.id.promotion_recycler_view);
         sms=callback.getMessages(Types.PromotionsFragment);
         RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(sms);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));

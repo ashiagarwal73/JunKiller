@@ -1,5 +1,6 @@
 package com.minor.unclutter.Fragment;
 
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,7 +18,11 @@ import com.minor.unclutter.Utility.Types;
 
 import java.util.List;
 
-public class SpamMessageFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class NetworkProviderFragment extends Fragment {
+
     private RecyclerView recyclerView;
     Callback callback;
     List<MssageInfoModel> sms;
@@ -29,12 +34,14 @@ public class SpamMessageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_spam_message, container, false);
-        recyclerView=view.findViewById(R.id.spam_recycler_view);
-        sms=callback.getMessages(Types.SpamMessageFragment);
+        // Inflate the layout for this fragment
+        View view=inflater.inflate(R.layout.fragment_network, container, false);
+        recyclerView=view.findViewById(R.id.network_recycler_view);
+        sms=callback.getMessages(Types.NetworkProviderFragment);
         RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(sms);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(recyclerViewAdapter);
         return view;
     }
+
 }

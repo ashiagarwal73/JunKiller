@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f7f0f4"
-    tools:context=".Fragment.BankUpdateFragment">
+    tools:context=".Fragment.PurchaseUpdateFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/bank_recycler_view">
+        android:id="@+id/purchase_recycler_view">
     </android.support.v7.widget.RecyclerView>
+
 </FrameLayout>

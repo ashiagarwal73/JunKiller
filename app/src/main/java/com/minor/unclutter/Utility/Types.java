@@ -12,4 +12,6 @@ public class Types {
     final public static int PersonalMessageFragment=3;
     final public static int PromotionsFragment=4;
     final public static int SpamMessageFragment=5;
+    public static final int PurchaseUpdateFragment = 6;
+    public static final int NetworkProviderFragment = 7;
 }

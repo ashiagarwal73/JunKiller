@@ -1,7 +1,12 @@
 package com.minor.unclutter.Activity;
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,12 +32,22 @@ public class MainActivity extends AppCompatActivity implements Callback {
             R.drawable.bank_icon,
             R.drawable.otp_icon,
             R.drawable.purchase_icon,
-            R.drawable.network_icon
+            R.drawable.network_icon,
+            R.drawable.ic_promotions_black_24dp,
+            R.drawable.ic_spam_black_24dp
             };
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission is not granted
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_SMS},
+                    0);
+
+        }
         tabLayout=findViewById(R.id.sliding_tabs);
         viewPager=findViewById(R.id.viewpager);
         viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager(),
@@ -75,6 +90,25 @@ public class MainActivity extends AppCompatActivity implements Callback {
         else if(type== Types.SpamMessageFragment){
             return sms.subList(50,60);
         }
+        else if(type==Types.NetworkProviderFragment){
+            return sms.subList(60,70);
+        }
+        else if(type==Types.PurchaseUpdateFragment){
+            return sms.subList(70,80);
+        }
         return sms;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case 0:
+                if (grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{Manifest.permission.READ_SMS},
+                            0);
+            }
+        }
     }
 }

@@ -7,6 +7,16 @@ public class MssageInfoModel implements Serializable {
     String day;
     String message;
 
+    public boolean isOpen() {
+        return open;
+    }
+
+    public void setOpen(boolean open) {
+        this.open = open;
+    }
+
+    boolean open;
+
     public String getSender() {
         return sender;
     }

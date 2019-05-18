@@ -31,18 +31,31 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, final int i) {
         myViewHolder.sender.setText(mssageInfoModels.get(i).getSender());
-        String s=mssageInfoModels.get(i).getMessage();
+        final String s=mssageInfoModels.get(i).getMessage();
         s.replaceAll("\n","");
+        String m = "";
         if(s.length()>85)
-            s=s.substring(0,82);
-        myViewHolder.message.setText(s+"...");
+            m=s.substring(0,82);
+        myViewHolder.message.setText(m+"...");
         myViewHolder.day.setText(mssageInfoModels.get(i).getDay());
         myViewHolder.imageView.setText(mssageInfoModels.get(i).getSender());
+        final String finalM = m;
         myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(mssageInfoModels.get(i).isOpen())
+                {
+                    myViewHolder.message.setMaxLines(2);
+                    myViewHolder.message.setText(finalM+"...");
+                    mssageInfoModels.get(i).setOpen(false);
+                }
+                else {
+                    myViewHolder.message.setMaxLines(100);
+                    myViewHolder.message.setText(s);
+                    mssageInfoModels.get(i).setOpen(true);
+                }
 
             }
         });
