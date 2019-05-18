@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/promo"
+        android:title="Promotions"
+        android:icon="@drawable/personal_icon" />
+    <item android:id="@+id/spam"
+        android:title="Spam"
+        android:icon="@drawable/purchase_icon" />
+    <item android:id="@+id/bank"
+        android:title="Bank"
+        android:icon="@drawable/bank_icon" />
+    <item android:id="@+id/otp"
+        android:title="OTP"
+        android:icon="@drawable/otp_icon" />
+</menu>
