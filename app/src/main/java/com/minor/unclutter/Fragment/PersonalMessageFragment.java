@@ -41,6 +41,46 @@ public class PersonalMessageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        sms=callback.getMessages(Types.PersonalMessageFragment);
+        recyclerView=view.findViewById(R.id.personal_recycler_view);
+        RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(sms);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+        recyclerView.setAdapter(recyclerViewAdapter);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //        Workbook wb = new HSSFWorkbook();
 //        Sheet sheet=wb.createSheet("Hello");
 //        if(sms==null) {
@@ -94,12 +134,4 @@ public class PersonalMessageFragment extends Fragment {
 //            } catch (IOException e) {
 //                e.printStackTrace();
 //            }
-      //  }
-        sms=callback.getMessages(Types.PersonalMessageFragment);
-        recyclerView=view.findViewById(R.id.personal_recycler_view);
-        RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(sms);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-        recyclerView.setAdapter(recyclerViewAdapter);
-    }
-
-}
+//  }

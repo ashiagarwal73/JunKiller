@@ -26,17 +26,18 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int i) {
         switch (i)
         {
-            case 0:return new PersonalMessageFragment();
+
+            case 0:return new OTPFragment();
 
             case 1:return new BankUpdateFragment();
 
-            case 2:return new OTPFragment();
+            case 2: return new PurchaseUpdateFragment();
 
-            case 3: return new PurchaseUpdateFragment();
+            case 3:return new NetworkProviderFragment();
 
-            case 4:return new NetworkProviderFragment();
+            case 4:return new PromotionsFragment();
 
-            case 5:return new PromotionsFragment();
+            case 5:return new PersonalMessageFragment();
 
             case 6:return new SpamMessageFragment();
         }
@@ -48,17 +49,16 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position)
         {
-            case 0:return  "Personal Message";
-
+            case 0:return "OTP";
             case 1:return "Bank Update";
 
-            case 2:return "OTP";
+            case 2:return "Purchase Update";
 
-            case 3:return "Purchase Update";
+            case 3:return "Network Provider";
 
-            case 4:return "Network Provider";
+            case 4:return "Promotions";
 
-            case 5:return "Promotions";
+            case 5:return  "Personal Message";
 
             case 6:return "Spam";
         }

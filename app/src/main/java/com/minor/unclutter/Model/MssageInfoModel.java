@@ -6,6 +6,15 @@ public class MssageInfoModel implements Serializable {
     String sender;
     String day;
     String message;
+    int category;//0=spam, 1=nospam
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
 
     public boolean isOpen() {
         return open;
