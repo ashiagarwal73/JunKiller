@@ -20,7 +20,6 @@ promotional, OTP, banking transactions, etc. using Machine Learning algorithms a
 #### APK:
 https://drive.google.com/open?id=1DY7n3v0ZtyWQwng3o6f38MnEwhXIfbJG
 </br></br>
-
 <img src="https://github.com/ashiagarwal73/JunKiller/blob/master/0.png" alt="output" width="250">
 <img src="https://github.com/ashiagarwal73/JunKiller/blob/master/1.jpeg" alt="output" width="250">
 <img src="https://github.com/ashiagarwal73/JunKiller/blob/master/2.png" alt="output" width="250">
