@@ -17,6 +17,13 @@ Here we are providing the user an android application that will classify the Tex
 and even the messages from other messaging platforms into various categories like Primary, updates, 
 promotional, OTP, banking transactions, etc. using Machine Learning algorithms and Neural Networks.
 </BR>
+
+<object data="https://github.com/ashiagarwal73/JunKiller/blob/master/Final.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://github.com/ashiagarwal73/JunKiller/blob/master/Final.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/ashiagarwal73/JunKiller/blob/master/Final.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
 #### APK:
 https://drive.google.com/open?id=1DY7n3v0ZtyWQwng3o6f38MnEwhXIfbJG
 </br></br>
