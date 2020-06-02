@@ -16,42 +16,41 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
     List<MssageInfoModel> mssageInfoModels;
-    public RecyclerViewAdapter(List<MssageInfoModel> mssageInfoModels)
-    {
-        this.mssageInfoModels=mssageInfoModels;
+
+    public RecyclerViewAdapter(List<MssageInfoModel> mssageInfoModels) {
+        this.mssageInfoModels = mssageInfoModels;
 
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view= LayoutInflater.from(viewGroup.getContext())
+        View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.message_info_layout, viewGroup, false);
-        MyViewHolder myViewHolder=new MyViewHolder(view);
+        MyViewHolder myViewHolder = new MyViewHolder(view);
         return myViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, final int i) {
         myViewHolder.sender.setText(mssageInfoModels.get(i).getSender());
-        final String s=mssageInfoModels.get(i).getMessage();
-        s.replaceAll("\n","");
+        final String s = mssageInfoModels.get(i).getMessage();
+        s.replaceAll("\n", "");
         String m = "";
-        if(s.length()>85)
-            m=s.substring(0,82);
-        myViewHolder.message.setText(m+"...");
+        if (s.length() > 85)
+            m = s.substring(0, 82);
+        myViewHolder.message.setText(m + "...");
         myViewHolder.day.setText(mssageInfoModels.get(i).getDay());
         myViewHolder.imageView.setText(mssageInfoModels.get(i).getSender());
         final String finalM = m;
         myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mssageInfoModels.get(i).isOpen())
-                {
+                if (mssageInfoModels.get(i).isOpen()) {
                     myViewHolder.message.setMaxLines(2);
-                    myViewHolder.message.setText(finalM+"...");
+                    myViewHolder.message.setText(finalM + "...");
                     mssageInfoModels.get(i).setOpen(false);
-                }
-                else {
+                } else {
                     myViewHolder.message.setMaxLines(100);
                     myViewHolder.message.setText(s);
                     mssageInfoModels.get(i).setOpen(true);
@@ -59,8 +58,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
             }
         });
-        switch (i%5)
-        {
+        myViewHolder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mssageInfoModels.remove(i);
+                notifyDataSetChanged();
+            }
+        });
+        switch (i % 5) {
             case 0:
                 myViewHolder.imageView.setBackgroundColor(0xfff0e675);
                 break;
@@ -85,14 +90,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView sender,message,day;
+        TextView sender, message, day;
         TextView imageView;
+        ImageView delete;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView=itemView.findViewById(R.id.image);
-            sender=itemView.findViewById(R.id.sender);
-            message=itemView.findViewById(R.id.message);
-            day=itemView.findViewById(R.id.day);
+            imageView = itemView.findViewById(R.id.image);
+            sender = itemView.findViewById(R.id.sender);
+            message = itemView.findViewById(R.id.message);
+            day = itemView.findViewById(R.id.day);
+            delete = itemView.findViewById(R.id.delete);
         }
     }
 }
